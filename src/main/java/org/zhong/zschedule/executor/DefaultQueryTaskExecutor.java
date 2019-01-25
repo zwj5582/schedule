@@ -4,9 +4,9 @@
 
 package org.zhong.zschedule.executor;
 
-import com.meliora.manage120.web.struts.schedule.config.QueryTaskExecutorConfig;
-import com.meliora.manage120.web.struts.schedule.loader.ScheduledExecutorServiceLoader;
-import com.meliora.manage120.web.struts.schedule.task.QueryTask;
+import org.zhong.zschedule.config.QueryTaskExecutorConfig;
+import org.zhong.zschedule.loader.ScheduledExecutorServiceLoader;
+import org.zhong.zschedule.task.QueryTask;
 
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;

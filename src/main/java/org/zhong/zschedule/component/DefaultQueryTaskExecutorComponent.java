@@ -4,7 +4,7 @@
 
 package org.zhong.zschedule.component;
 
-import com.meliora.manage120.web.struts.schedule.register.QueryTaskExecutorRegister;
+import org.zhong.zschedule.register.QueryTaskExecutorRegister;
 
 public class DefaultQueryTaskExecutorComponent extends GeneralQueryTaskExecutorComponent {
 

@@ -5,7 +5,7 @@
 package org.zhong.zschedule.executor;
 
 import com.google.common.collect.Maps;
-import com.meliora.manage120.web.struts.schedule.task.QueryTask;
+import org.zhong.zschedule.task.QueryTask;
 
 import java.util.Map;
 import java.util.concurrent.ExecutorService;

@@ -4,11 +4,12 @@
 
 package org.zhong.zschedule.component;
 
-import com.meliora.manage120.web.struts.schedule.config.QueryTaskExecutorConfig;
-import com.meliora.manage120.web.struts.schedule.loader.DefaultScheduledExecutorServiceLoader;
-import com.meliora.manage120.web.struts.schedule.loader.ScheduledExecutorServiceLoader;
-import com.meliora.manage120.web.struts.schedule.task.DefaultQueryTask;
-import com.meliora.manage120.web.struts.schedule.task.QueryTask;
+
+import org.zhong.zschedule.config.QueryTaskExecutorConfig;
+import org.zhong.zschedule.loader.DefaultScheduledExecutorServiceLoader;
+import org.zhong.zschedule.loader.ScheduledExecutorServiceLoader;
+import org.zhong.zschedule.task.DefaultQueryTask;
+import org.zhong.zschedule.task.QueryTask;
 
 public abstract class GeneralQueryTaskExecutorComponent implements QueryTaskExecutorComponent {
 
