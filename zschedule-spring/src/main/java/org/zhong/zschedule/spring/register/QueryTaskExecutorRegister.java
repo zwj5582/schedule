@@ -9,13 +9,13 @@ import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 import org.zhong.zschedule.core.Util;
-import org.zhong.zschedule.core.component.DefaultQueryTaskExecutorComponent;
-import org.zhong.zschedule.core.component.QueryTaskExecutorComponent;
 import org.zhong.zschedule.core.config.QueryTaskExecutorConfig;
 import org.zhong.zschedule.core.executor.QueryTaskExecutor;
 import org.zhong.zschedule.core.loader.ScheduledExecutorServiceLoader;
 import org.zhong.zschedule.core.executor.DefaultQueryTaskExecutor;
 import org.zhong.zschedule.core.task.QueryTask;
+import org.zhong.zschedule.spring.component.DefaultQueryTaskExecutorComponent;
+import org.zhong.zschedule.spring.component.QueryTaskExecutorComponent;
 
 import java.util.Map;
 
