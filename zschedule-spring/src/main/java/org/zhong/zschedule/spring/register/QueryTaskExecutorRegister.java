@@ -7,6 +7,9 @@ package org.zhong.zschedule.spring.register;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 import org.zhong.zschedule.core.Util;
 import org.zhong.zschedule.core.config.QueryTaskExecutorConfig;
@@ -17,6 +20,7 @@ import org.zhong.zschedule.core.task.QueryTask;
 import org.zhong.zschedule.spring.component.DefaultQueryTaskExecutorComponent;
 import org.zhong.zschedule.spring.component.QueryTaskExecutorComponent;
 
+import java.security.AccessControlContext;
 import java.util.Map;
 
 @Component
@@ -28,6 +32,9 @@ public class QueryTaskExecutorRegister implements BeanFactoryPostProcessor {
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
+        final DefaultListableBeanFactory defaultListableBeanFactory = (DefaultListableBeanFactory) configurableListableBeanFactory;
+        final AccessControlContext accessControlContext = defaultListableBeanFactory.getAccessControlContext();
+
         this.configurableListableBeanFactory = configurableListableBeanFactory;
         configurableListableBeanFactory.registerSingleton(DEFAULT, doBuild(new DefaultQueryTaskExecutorComponent()));
         Map<String, QueryTaskExecutorComponent> beans = configurableListableBeanFactory.getBeansOfType(QueryTaskExecutorComponent.class);

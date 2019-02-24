@@ -69,11 +69,18 @@ final class QueryTaskAware implements Runnable {
         Boolean timeout = ((beginTime + timeoutTime) < System.currentTimeMillis());
         if (timeout) {
             running = queryTask.doTimeoutStop(queryParams);
-            if (!running) currFuture.cancel(false);
+            if (!running) {
+                running = queryTask.doStop(queryParams);
+                if (!running) {
+                    currFuture.cancel(false);
+                }
+            }
         } else {
             if (!running) {
                 running = queryTask.doStop(queryParams);
-                if (!running) currFuture.cancel(false);
+                if (!running) {
+                    currFuture.cancel(false);
+                }
             }
             if (running) running = queryTask.doQuery(queryParams);
         }

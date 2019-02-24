@@ -45,15 +45,17 @@ final class VariableQueryTaskAware implements Runnable {
         if (timeout) {
             running = variableQueryTask.doTimeoutStop(queryParams);
         } else {
-            if (!running) {
-                running = variableQueryTask.doStop(queryParams);
-            }
             if (running) running = variableQueryTask.doQuery(queryParams);
         }
         if ( !timeout && running ) {
             long nextDelay = variableQueryTask.nextDelay(queryParams);
             if (nextDelay != 0)
                 scheduledExecutorService.schedule(this, nextDelay, TimeUnit.MILLISECONDS);
+            else {
+                variableQueryTask.doStop(queryParams);
+            }
+        }else {
+            variableQueryTask.doStop(queryParams);
         }
     }
 
